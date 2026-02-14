@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class DustReceiver : MonoBehaviour
@@ -28,10 +29,17 @@ public class DustReceiver : MonoBehaviour
     {
         if(collision.tag == "dust")
         {
+            dustScript = collision.GetComponent<Dust>();
             if (DustReceiveLimit >= dustScript.ContainsThisMuchDust)
             {
 
                 CorrectAmntDustReceived();
+                Destroy(collision.gameObject);
+                //collision.gameObject.
+            }
+            else
+            {
+                Debug.Log("dust too damb big");
             }
         }
     }
