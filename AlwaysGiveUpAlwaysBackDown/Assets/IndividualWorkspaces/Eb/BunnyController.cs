@@ -3,8 +3,13 @@ using UnityEngine.InputSystem;
 
 public class BunnyController : MonoBehaviour
 {
+    public enum BunState { IDLE, RUN, JUMP, FALL }
+    private BunState currentState;
+
     private Rigidbody2D rb;
     public Transform face;
+    public Animator faceAnim;
+    public GameObject poofParticlePrefab;
 
     private InputAction moveInput;
     private InputAction jumpAction;
@@ -22,6 +27,8 @@ public class BunnyController : MonoBehaviour
 
         moveInput = InputSystem.actions.FindAction("Move");
         jumpAction = InputSystem.actions.FindAction("Jump");
+
+        currentState = BunState.IDLE;
     }
 
     void Update()
@@ -43,6 +50,9 @@ public class BunnyController : MonoBehaviour
             // jump output
             rb.AddForce(jumpForce * new Vector2(0f, 1f), ForceMode2D.Impulse);
         }
+
+        // update animator
+        VisualUpdate();
     }
 
     void FixedUpdate()
@@ -69,5 +79,49 @@ public class BunnyController : MonoBehaviour
         }
 
         return false;
+    }
+
+    void VisualUpdate()
+    {
+        bool isGrounded = IsGrounded();
+
+        // face animations
+        if (isGrounded)
+        {
+            if(Mathf.Abs(moveX) > 0.01f)
+            {
+                currentState = BunState.RUN;
+            }
+            else
+            {
+                currentState = BunState.IDLE;
+            }
+        }
+        else
+        {
+            if(rb.linearVelocity.y > 0f)
+            {
+                currentState = BunState.JUMP;
+            }
+            else
+            {
+                currentState = BunState.FALL;
+            }
+        }
+
+        faceAnim.SetInteger("state",  (int) currentState);
+    }
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        ContactPoint2D contact = col.contacts[0];
+        Vector2 hitPoint = contact.point;
+
+        Debug.Log($"Point of contact at: {hitPoint}");
+        if (hitPoint != null)
+        {
+            GameObject poof = Instantiate(poofParticlePrefab);
+            poof.transform.position = hitPoint;
+        }
     }
 }
