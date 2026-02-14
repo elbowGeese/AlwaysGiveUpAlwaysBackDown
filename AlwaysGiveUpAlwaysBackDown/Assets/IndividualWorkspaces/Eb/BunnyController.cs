@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 public class BunnyController : MonoBehaviour
 {
     private Rigidbody2D rb;
+    public Transform face;
 
     private InputAction moveInput;
     private InputAction jumpAction;
@@ -27,6 +28,14 @@ public class BunnyController : MonoBehaviour
     {
         // move input
         moveX = moveInput.ReadValue<Vector2>().x;
+        if(moveX > 0f)
+        {
+            face.localScale = new Vector2(1f, 1f);
+        }
+        else if(moveX < 0f)
+        {
+            face.localScale = new Vector2(-1f, 1f);
+        }
 
         // jump input
         if (jumpAction.WasPressedThisFrame() && IsGrounded())
