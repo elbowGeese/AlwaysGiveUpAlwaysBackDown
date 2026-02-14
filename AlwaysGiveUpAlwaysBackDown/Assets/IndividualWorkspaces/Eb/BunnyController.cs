@@ -21,6 +21,8 @@ public class BunnyController : MonoBehaviour
 
     public float groundedRayDistance = 1f;
 
+    private bool isPaused = false;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -34,21 +36,24 @@ public class BunnyController : MonoBehaviour
     void Update()
     {
         // move input
-        moveX = moveInput.ReadValue<Vector2>().x;
-        if(moveX > 0f)
+        if (!isPaused)
         {
-            face.localScale = new Vector2(1f, 1f);
-        }
-        else if(moveX < 0f)
-        {
-            face.localScale = new Vector2(-1f, 1f);
-        }
+            moveX = moveInput.ReadValue<Vector2>().x;
+            if (moveX > 0f)
+            {
+                face.localScale = new Vector2(1f, 1f);
+            }
+            else if (moveX < 0f)
+            {
+                face.localScale = new Vector2(-1f, 1f);
+            }
 
-        // jump input
-        if (jumpAction.WasPressedThisFrame() && IsGrounded())
-        {
-            // jump output
-            rb.AddForce(jumpForce * new Vector2(0f, 1f), ForceMode2D.Impulse);
+            // jump input
+            if (jumpAction.WasPressedThisFrame() && IsGrounded())
+            {
+                // jump output
+                rb.AddForce(jumpForce * new Vector2(0f, 1f), ForceMode2D.Impulse);
+            }
         }
 
         // update animator
@@ -123,5 +128,16 @@ public class BunnyController : MonoBehaviour
             GameObject poof = Instantiate(poofParticlePrefab);
             poof.transform.position = hitPoint;
         }
+    }
+
+    public void PauseBunnyControls()
+    {
+        isPaused = true;
+        moveX = 0f;
+    }
+
+    public void UnpauseBunnyControls()
+    {
+        isPaused = false;
     }
 }

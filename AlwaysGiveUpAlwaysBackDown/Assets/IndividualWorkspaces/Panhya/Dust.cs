@@ -3,15 +3,12 @@ using UnityEngine;
 public class Dust : MonoBehaviour
 {
     public int ContainsThisMuchDust;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public Collider2D trigger;
+    public GameObject col;
+    
+    public void ReadyCollect()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        trigger.enabled = false;
+        col.SetActive(false);
     }
 }
