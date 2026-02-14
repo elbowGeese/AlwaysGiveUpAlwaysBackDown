@@ -1,28 +1,44 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using System.Collections;
+using System;
 
 public class DustReceiver : MonoBehaviour
 {
-    public int DustAmount;
+    public Action<int> onDustReceived;
+
+    public int DustAmount = 0;
     public Dust dustScript;
     public int DustReceiveLimit;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public float lerpTime = 1f;
+    public GameObject dustBoomParticlePrefab;
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator CorrectAmntDustReceived()
     {
-        
-    }
+        if(dustScript != null) 
+        { 
+            dustScript.ReadyCollect();
 
-    void CorrectAmntDustReceived()
-    {
-        Debug.Log($"received this much dust:" + dustScript.ContainsThisMuchDust);
-        DustAmount += dustScript.ContainsThisMuchDust;
+            float timer = lerpTime;
+            Vector2 dustStartPos = dustScript.gameObject.transform.position;
+            while (timer > 0f)
+            {
+                float interp = 1f - (timer / lerpTime);
+                dustScript.gameObject.transform.position = Vector2.Lerp(dustStartPos, transform.position, interp);
+                timer -= Time.deltaTime;
+
+                yield return null;
+            }
+
+            DustAmount += dustScript.ContainsThisMuchDust;
+            onDustReceived?.Invoke(DustAmount);
+            Destroy(dustScript.gameObject);
+        }
+        else
+        {
+            Debug.Log("NO DUST B!");
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -32,10 +48,7 @@ public class DustReceiver : MonoBehaviour
             dustScript = collision.GetComponent<Dust>();
             if (DustReceiveLimit >= dustScript.ContainsThisMuchDust)
             {
-
-                CorrectAmntDustReceived();
-                Destroy(collision.gameObject);
-                //collision.gameObject.
+                StartCoroutine(CorrectAmntDustReceived());
             }
             else
             {
