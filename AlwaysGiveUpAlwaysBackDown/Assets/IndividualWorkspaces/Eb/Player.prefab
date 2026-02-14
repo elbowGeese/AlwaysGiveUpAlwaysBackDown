@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7537208745603856112}
   - component: {fileID: 5726655633606290732}
   - component: {fileID: 932730655497082382}
+  - component: {fileID: 409649202911855629}
   - component: {fileID: 7362794375128435037}
   m_Layer: 0
   m_Name: Player
@@ -98,6 +99,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &409649202911855629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2490279695597182753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07d9006978fae1547b9afc71eb91bae6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DustReceiver
+  DustAmount: 0
+  dustScript: {fileID: 0}
+  DustReceiveLimit: 0
 --- !u!114 &7362794375128435037
 MonoBehaviour:
   m_ObjectHideFlags: 0
