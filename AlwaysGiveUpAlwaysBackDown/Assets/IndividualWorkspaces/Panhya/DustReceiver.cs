@@ -12,11 +12,13 @@ public class DustReceiver : MonoBehaviour
 
     public float lerpTime = 1f;
     public GameObject dustBoomParticlePrefab;
+    public AudioSource pickUpSource;
 
     IEnumerator CorrectAmntDustReceived(Dust dustScript)
     {
         if(dustScript != null) 
-        { 
+        {
+            pickUpSource.Play();
             dustScript.ReadyCollect();
 
             float timer = lerpTime;
@@ -35,6 +37,7 @@ public class DustReceiver : MonoBehaviour
             DustAmount += dustScript.ContainsThisMuchDust;
             onDustReceived?.Invoke();
             Destroy(dustScript.gameObject);
+            
         }
         else
         {

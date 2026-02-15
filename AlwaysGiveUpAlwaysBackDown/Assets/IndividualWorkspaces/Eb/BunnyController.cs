@@ -15,6 +15,9 @@ public class BunnyController : MonoBehaviour
     private InputAction jumpAction;
     private InputAction downAction;
 
+    public AudioSource walkingSource;
+    public AudioSource jumpingSource;
+
     private float moveX = 0f;
 
     public float moveSpeed = 5f;
@@ -31,6 +34,7 @@ public class BunnyController : MonoBehaviour
         moveInput = InputSystem.actions.FindAction("Move");
         jumpAction = InputSystem.actions.FindAction("Jump");
         downAction = InputSystem.actions.FindAction("Down");
+         
 
         currentState = BunState.IDLE;
     }
@@ -55,6 +59,7 @@ public class BunnyController : MonoBehaviour
             {
                 // jump output
                 rb.AddForce(jumpForce * new Vector2(0f, 1f), ForceMode2D.Impulse);
+                jumpingSource.Play();
             }
             if (downAction.WasPressedThisFrame() && IsGrounded())
             {
@@ -140,15 +145,18 @@ public class BunnyController : MonoBehaviour
             if(Mathf.Abs(moveX) > 0.01f)
             {
                 currentState = BunState.RUN;
+                walkingSource.Play();
             }
             else
             {
                 currentState = BunState.IDLE;
+                walkingSource.Pause();
             }
         }
         else
         {
-            if(rb.linearVelocity.y > 0f)
+            walkingSource.Pause();
+            if (rb.linearVelocity.y > 0f)
             {
                 currentState = BunState.JUMP;
                 HitDropUp();
@@ -172,6 +180,7 @@ public class BunnyController : MonoBehaviour
         {
             GameObject poof = Instantiate(poofParticlePrefab);
             poof.transform.position = hitPoint;
+            jumpingSource.Play();
         }
     }
 
