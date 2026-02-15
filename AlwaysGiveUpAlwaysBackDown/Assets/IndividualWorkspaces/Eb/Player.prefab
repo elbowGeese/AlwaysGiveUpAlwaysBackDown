@@ -316,6 +316,7 @@ GameObject:
   - component: {fileID: 932730655497082382}
   - component: {fileID: 409649202911855629}
   - component: {fileID: 7362794375128435037}
+  - component: {fileID: 249096230799498933}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -334,7 +335,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3572139053033714244}
   - {fileID: 1794519075151322048}
@@ -390,7 +391,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDamping: 0
+  m_LinearDamping: 1
   m_AngularDamping: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 6200000, guid: 498b8d287e268064badbcbe55d7ca2e1, type: 2}
@@ -419,6 +420,8 @@ MonoBehaviour:
   DustAmount: 0
   dustScript: {fileID: 0}
   DustReceiveLimit: 1
+  lerpTime: 1
+  dustBoomParticlePrefab: {fileID: 0}
 --- !u!114 &7362794375128435037
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -437,6 +440,145 @@ MonoBehaviour:
   moveSpeed: 400
   jumpForce: 5
   groundedRayDistance: 1
+--- !u!114 &249096230799498933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2490279695597182753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e835ccd2a94b1e447be64a05a0c277e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SizeHandler
+  dustReceiver: {fileID: 409649202911855629}
+  bc: {fileID: 7362794375128435037}
+  jumpForceCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 5
+      inSlope: 0.75
+      outSlope: 0.75
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 20
+      value: 20
+      inSlope: 0.75
+      outSlope: 0.75
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  scaleCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0.039
+      outSlope: 0.039
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 100
+      value: 4.9
+      inSlope: 0.039
+      outSlope: 0.039
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  smallPRadius:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.5
+      inSlope: 0.045
+      outSlope: 0.045
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 100
+      value: 5
+      inSlope: 0.045
+      outSlope: 0.045
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  mediumPRadius:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.4
+      inSlope: 0.036
+      outSlope: 0.036
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 100
+      value: 4
+      inSlope: 0.036
+      outSlope: 0.036
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  largePRadius:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.3
+      inSlope: 0.027
+      outSlope: 0.027
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 100
+      value: 3
+      inSlope: 0.027
+      outSlope: 0.027
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  smallP1: {fileID: 8683328151067893128}
+  smallP2: {fileID: 5812905305968151298}
+  mediumP: {fileID: 6892617589451054583}
+  largeP1: {fileID: 2969566417978062932}
+  largeP2: {fileID: 363413533311494106}
 --- !u!1 &6680831765473432131
 GameObject:
   m_ObjectHideFlags: 0
@@ -633,7 +775,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3572139053033714244
 Transform:
   m_ObjectHideFlags: 0
@@ -854,8 +996,33 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea0ebf980bafc0744851ea43efd77c40, type: 3}
+--- !u!198 &363413533311494106 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 7246031062401281038, guid: ea0ebf980bafc0744851ea43efd77c40, type: 3}
+  m_PrefabInstance: {fileID: 7026750608321678292}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1424993884147458523 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8233301474997742095, guid: ea0ebf980bafc0744851ea43efd77c40, type: 3}
+  m_PrefabInstance: {fileID: 7026750608321678292}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &2969566417978062932 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 5238263191859164032, guid: ea0ebf980bafc0744851ea43efd77c40, type: 3}
+  m_PrefabInstance: {fileID: 7026750608321678292}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &5812905305968151298 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 3544226121194209494, guid: ea0ebf980bafc0744851ea43efd77c40, type: 3}
+  m_PrefabInstance: {fileID: 7026750608321678292}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &6892617589451054583 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4477553705005143587, guid: ea0ebf980bafc0744851ea43efd77c40, type: 3}
+  m_PrefabInstance: {fileID: 7026750608321678292}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &8683328151067893128 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1802962127326746204, guid: ea0ebf980bafc0744851ea43efd77c40, type: 3}
   m_PrefabInstance: {fileID: 7026750608321678292}
   m_PrefabAsset: {fileID: 0}
