@@ -454,23 +454,49 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SizeHandler
   dustReceiver: {fileID: 409649202911855629}
   bc: {fileID: 7362794375128435037}
-  jumpForceCurve:
+  positionComposer: {fileID: 0}
+  cameraZoomTime: 0.3
+  cameraZoomCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 5
-      inSlope: 0.75
-      outSlope: 0.75
+      value: 5.51
+      inSlope: 0.22449999
+      outSlope: 0.22449999
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 20
+      value: 10
+      inSlope: 0.22449999
+      outSlope: 0.22449999
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  jumpForceCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 5
+      inSlope: 1.25
+      outSlope: 1.25
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 12
       value: 20
-      inSlope: 0.75
-      outSlope: 0.75
+      inSlope: 1.25
+      outSlope: 1.25
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
