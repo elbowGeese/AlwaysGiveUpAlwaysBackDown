@@ -25,7 +25,6 @@ public class SemiParallaxBG : MonoBehaviour
         float yOffset = Mathf.Clamp(yDist / maxYCameraDistFromBG, -1f, 1f) * maxYOffset;
 
         Vector2 newPos = new Vector2(centeredPos.x - xOffset, centeredPos.y - maxYOffset);
-        Debug.Log($"New BG POS: {newPos}");
-        cameraTransform.position = newPos; 
+        transform.position = newPos; 
     }
 }
