@@ -182,7 +182,7 @@ PrefabInstance:
     - target: {fileID: 3194442127066418725, guid: 04565e00aca603d4abe03d8eeecd6133, type: 3}
       propertyPath: Target.TrackingTarget
       value: 
-      objectReference: {fileID: 1429829681}
+      objectReference: {fileID: 7537208746275017576}
     - target: {fileID: 8535298905904329349, guid: 04565e00aca603d4abe03d8eeecd6133, type: 3}
       propertyPath: m_Name
       value: CinemachineCamera
@@ -2222,11 +2222,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1429829681 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7537208745603856112, guid: 38e43dc17017754408694d7ecab747d5, type: 3}
-  m_PrefabInstance: {fileID: 673179032}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1444563472
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3066,6 +3061,11 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   CustomBlends: {fileID: 0}
+--- !u!4 &7537208746275017576 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7537208745603856112, guid: 38e43dc17017754408694d7ecab747d5, type: 3}
+  m_PrefabInstance: {fileID: 673179032}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
