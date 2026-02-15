@@ -5,7 +5,7 @@ using System;
 
 public class DustReceiver : MonoBehaviour
 {
-    public Action<int> onDustReceived;
+    public Action onDustReceived;
 
     public int DustAmount = 0;
     public Dust dustScript;
@@ -32,7 +32,7 @@ public class DustReceiver : MonoBehaviour
             }
 
             DustAmount += dustScript.ContainsThisMuchDust;
-            onDustReceived?.Invoke(DustAmount);
+            onDustReceived?.Invoke();
             Destroy(dustScript.gameObject);
         }
         else
