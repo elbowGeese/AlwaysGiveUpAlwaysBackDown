@@ -1359,6 +1359,26 @@ PrefabInstance:
       propertyPath: positionComposer
       value: 
       objectReference: {fileID: 166814366}
+    - target: {fileID: 249096230799498933, guid: 38e43dc17017754408694d7ecab747d5, type: 3}
+      propertyPath: cameraZoomCurve.m_Curve.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 249096230799498933, guid: 38e43dc17017754408694d7ecab747d5, type: 3}
+      propertyPath: cameraZoomCurve.m_Curve.Array.data[0].time
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 249096230799498933, guid: 38e43dc17017754408694d7ecab747d5, type: 3}
+      propertyPath: cameraZoomCurve.m_Curve.Array.data[0].value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 249096230799498933, guid: 38e43dc17017754408694d7ecab747d5, type: 3}
+      propertyPath: cameraZoomCurve.m_Curve.Array.data[0].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 249096230799498933, guid: 38e43dc17017754408694d7ecab747d5, type: 3}
+      propertyPath: cameraZoomCurve.m_Curve.Array.data[0].outWeight
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2490279695597182753, guid: 38e43dc17017754408694d7ecab747d5, type: 3}
       propertyPath: m_Name
       value: Player
