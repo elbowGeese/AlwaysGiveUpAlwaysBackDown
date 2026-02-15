@@ -83,17 +83,9 @@ public class BunnyController : MonoBehaviour
         {
             foreach(RaycastHit2D hit in hits)
             {
-                if(!hit.collider.gameObject.CompareTag("Player"))
+                if(!hit.collider.gameObject.CompareTag("Player") && !hit.collider.gameObject.CompareTag("fan"))
                 {
-
                     return true;
-
-                    
-
-
-
-
-
                 }
             }
         }
@@ -113,14 +105,7 @@ public class BunnyController : MonoBehaviour
             {
                 if (hit.collider.gameObject.CompareTag("dropdown"))
                 {
-
                     hit.collider.isTrigger = true;
-
-
-
-
-
-
                 }
             }
         }
@@ -139,19 +124,10 @@ public class BunnyController : MonoBehaviour
             {
                 if (hit.collider.gameObject.CompareTag("dropdown"))
                 {
-
                     hit.collider.isTrigger = true;
-
-
-
-
-
-
                 }
             }
         }
-
-      
     }
 
     void VisualUpdate()
@@ -161,7 +137,6 @@ public class BunnyController : MonoBehaviour
         // face animations
         if (isGrounded)
         {
-            
             if(Mathf.Abs(moveX) > 0.01f)
             {
                 currentState = BunState.RUN;
