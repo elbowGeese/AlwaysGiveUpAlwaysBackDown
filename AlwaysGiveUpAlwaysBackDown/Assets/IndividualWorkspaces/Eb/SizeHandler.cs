@@ -7,10 +7,7 @@ public class SizeHandler : MonoBehaviour
 {
     public DustReceiver dustReceiver;
     public BunnyController bc;
-    public CinemachinePositionComposer positionComposer;
 
-    public float cameraZoomTime = 0.3f;
-    public AnimationCurve cameraZoomCurve;
     public AnimationCurve jumpForceCurve;
     public AnimationCurve scaleCurve;
     public AnimationCurve smallPRadius, mediumPRadius, largePRadius;
@@ -59,22 +56,5 @@ public class SizeHandler : MonoBehaviour
         var largeP2ShapeModule = largeP2.shape;
         largeP2ShapeModule.radius = lRadius;
 
-        // camera zoom 
-        StartCoroutine(LerpCameraDist(cameraZoomCurve.Evaluate(dustAmount)));
-    }
-
-    IEnumerator LerpCameraDist(float newDist)
-    {
-        float previousDist = positionComposer.CameraDistance;
-
-        float timer = 0f;
-        while(timer < cameraZoomTime)
-        {
-            positionComposer.CameraDistance = Mathf.Lerp(previousDist, newDist, timer / cameraZoomTime);
-            timer += Time.deltaTime;
-            yield return null;
-        }
-
-        positionComposer.CameraDistance = newDist;
     }
 }
