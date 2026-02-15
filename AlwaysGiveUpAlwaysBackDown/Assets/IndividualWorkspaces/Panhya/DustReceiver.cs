@@ -8,13 +8,12 @@ public class DustReceiver : MonoBehaviour
     public Action onDustReceived;
 
     public int DustAmount = 0;
-    public Dust dustScript;
     public int DustReceiveLimit;
 
     public float lerpTime = 1f;
     public GameObject dustBoomParticlePrefab;
 
-    IEnumerator CorrectAmntDustReceived()
+    IEnumerator CorrectAmntDustReceived(Dust dustScript)
     {
         if(dustScript != null) 
         { 
@@ -31,6 +30,8 @@ public class DustReceiver : MonoBehaviour
                 yield return null;
             }
 
+            GameObject dustParticle = Instantiate(dustBoomParticlePrefab);
+            dustParticle.transform.position = transform.position;
             DustAmount += dustScript.ContainsThisMuchDust;
             onDustReceived?.Invoke();
             Destroy(dustScript.gameObject);
@@ -45,10 +46,10 @@ public class DustReceiver : MonoBehaviour
     {
         if(collision.tag == "dust")
         {
-            dustScript = collision.GetComponent<Dust>();
+            Dust dustScript = collision.GetComponent<Dust>();
             if (DustReceiveLimit >= dustScript.ContainsThisMuchDust)
             {
-                StartCoroutine(CorrectAmntDustReceived());
+                StartCoroutine(CorrectAmntDustReceived(dustScript));
             }
             else
             {
