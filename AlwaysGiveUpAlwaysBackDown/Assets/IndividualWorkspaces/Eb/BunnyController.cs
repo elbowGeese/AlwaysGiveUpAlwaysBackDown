@@ -13,6 +13,7 @@ public class BunnyController : MonoBehaviour
 
     private InputAction moveInput;
     private InputAction jumpAction;
+    private InputAction downAction;
 
     private float moveX = 0f;
 
@@ -29,6 +30,7 @@ public class BunnyController : MonoBehaviour
 
         moveInput = InputSystem.actions.FindAction("Move");
         jumpAction = InputSystem.actions.FindAction("Jump");
+        downAction = InputSystem.actions.FindAction("Down");
 
         currentState = BunState.IDLE;
     }
@@ -54,6 +56,11 @@ public class BunnyController : MonoBehaviour
                 // jump output
                 rb.AddForce(jumpForce * new Vector2(0f, 1f), ForceMode2D.Impulse);
             }
+            if (downAction.WasPressedThisFrame() && IsGrounded())
+            {
+                HitDropDown();
+
+            }
         }
 
         // update animator
@@ -78,12 +85,73 @@ public class BunnyController : MonoBehaviour
             {
                 if(!hit.collider.gameObject.CompareTag("Player"))
                 {
+
                     return true;
+
+                    
+
+
+
+
+
                 }
             }
         }
 
         return false;
+    }
+
+    void HitDropDown()
+    {
+        RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, -Vector2.up, groundedRayDistance);
+        Debug.DrawRay(transform.position, groundedRayDistance * -Vector2.up, Color.red, 1f);
+
+        Debug.Log(hits.Length);
+        if (hits.Length > 0)
+        {
+            foreach (RaycastHit2D hit in hits)
+            {
+                if (hit.collider.gameObject.CompareTag("dropdown"))
+                {
+
+                    hit.collider.isTrigger = true;
+
+
+
+
+
+
+                }
+            }
+        }
+
+      
+    }
+    void HitDropUp()
+    {
+        RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, Vector2.up, groundedRayDistance);
+        Debug.DrawRay(transform.position, groundedRayDistance * Vector2.up, Color.red, 1f);
+
+        Debug.Log(hits.Length);
+        if (hits.Length > 0)
+        {
+            foreach (RaycastHit2D hit in hits)
+            {
+                if (hit.collider.gameObject.CompareTag("dropdown"))
+                {
+
+                    hit.collider.isTrigger = true;
+
+
+
+
+
+
+                }
+            }
+        }
+
+      
     }
 
     void VisualUpdate()
@@ -93,6 +161,7 @@ public class BunnyController : MonoBehaviour
         // face animations
         if (isGrounded)
         {
+            
             if(Mathf.Abs(moveX) > 0.01f)
             {
                 currentState = BunState.RUN;
@@ -107,6 +176,7 @@ public class BunnyController : MonoBehaviour
             if(rb.linearVelocity.y > 0f)
             {
                 currentState = BunState.JUMP;
+                HitDropUp();
             }
             else
             {
