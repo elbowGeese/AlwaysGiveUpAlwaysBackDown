@@ -1229,6 +1229,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 352314134354315590, guid: 9ac1bbcbb9c3ca84b9af9408ad8c8b09, type: 3}
+      propertyPath: DustRequiredToDropThrough
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1303248133580189499, guid: 9ac1bbcbb9c3ca84b9af9408ad8c8b09, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12.94
