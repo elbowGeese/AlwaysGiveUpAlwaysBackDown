@@ -129,11 +129,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1234221781309668187, guid: 04565e00aca603d4abe03d8eeecd6133, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.67
+      value: -6.3999996
       objectReference: {fileID: 0}
     - target: {fileID: 1234221781309668187, guid: 04565e00aca603d4abe03d8eeecd6133, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.587258
+      value: -15.687258
       objectReference: {fileID: 0}
     - target: {fileID: 1234221781309668187, guid: 04565e00aca603d4abe03d8eeecd6133, type: 3}
       propertyPath: m_LocalPosition.z
@@ -454,6 +454,100 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &353664199
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 353664200}
+  - component: {fileID: 353664202}
+  - component: {fileID: 353664201}
+  m_Layer: 0
+  m_Name: SeeSawTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &353664200
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 353664199}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.017, y: 3.51, z: 0.47}
+  m_LocalScale: {x: 1.27, y: 3.0894303, z: 9.0752125}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 967657601}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &353664201
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 353664199}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.035970896, y: -1.0130703}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.8396551, y: 0.5957303}
+  m_EdgeRadius: 0
+--- !u!114 &353664202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 353664199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17bb6c2b020b22746bf1053421ae86a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SeeSawScript
+  dustReceiverScript: {fileID: 0}
+  seeSawRigidbody: {fileID: 0}
+  RequiredDustSeeSaw: 2
 --- !u!1 &522128018
 GameObject:
   m_ObjectHideFlags: 0
@@ -670,11 +764,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7537208745603856112, guid: 38e43dc17017754408694d7ecab747d5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.67
+      value: -6.4
       objectReference: {fileID: 0}
     - target: {fileID: 7537208745603856112, guid: 38e43dc17017754408694d7ecab747d5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -10.53
+      value: -16.63
       objectReference: {fileID: 0}
     - target: {fileID: 7537208745603856112, guid: 38e43dc17017754408694d7ecab747d5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1212,7 +1306,8 @@ Transform:
   m_LocalPosition: {x: 21.51, y: -21.79, z: -0.41}
   m_LocalScale: {x: 8.621858, y: 0.6566529, z: 0.9187192}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 353664200}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -1.565, y: 0, z: 30.463}
 --- !u!50 &967657602
@@ -1227,7 +1322,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.5
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1
@@ -1241,7 +1336,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 3
+  m_Constraints: 7
 --- !u!1 &1079728399
 GameObject:
   m_ObjectHideFlags: 0
@@ -2604,7 +2699,7 @@ Transform:
   m_GameObject: {fileID: 2022817027}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.67, y: -9.587258, z: -5.51}
+  m_LocalPosition: {x: -6.3999996, y: -15.687258, z: -5.51}
   m_LocalScale: {x: 0.9187191, y: 0.9187191, z: 0.9187191}
   m_ConstrainProportionsScale: 0
   m_Children: []

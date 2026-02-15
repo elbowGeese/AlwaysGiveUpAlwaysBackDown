@@ -9,8 +9,8 @@ public class SeeSawScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        dustReceiverScript = GameObject.Find("DustReceiver").GetComponent<DustReceiver>();
-        seeSawRigidbody = GetComponent<Rigidbody2D>();
+        dustReceiverScript = GameObject.Find("Player").GetComponent<DustReceiver>();
+        seeSawRigidbody = GameObject.Find("seesaw").GetComponent<Rigidbody2D>();
         seeSawRigidbody.freezeRotation = true;
     }
 
