@@ -6,6 +6,7 @@ TagManager:
   tags:
   - dust
   - fan
+  - dropdown
   layers:
   - Default
   - TransparentFX
