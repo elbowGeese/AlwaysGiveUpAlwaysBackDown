@@ -5,7 +5,7 @@ public class FanScript : MonoBehaviour
     public GameObject player;
     Rigidbody2D playerRB;
     public float fanStrength;
-    public float editBunnyMass;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -26,7 +26,7 @@ public class FanScript : MonoBehaviour
         if (collision.transform.tag == "Player")
         {
             Debug.Log("fan moving bunny up");
-            playerRB.mass += editBunnyMass;
+            
             playerRB.AddForceY(fanStrength);
         }
     }
