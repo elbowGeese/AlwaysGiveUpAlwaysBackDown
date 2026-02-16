@@ -9,6 +9,8 @@ public class EndSequence : MonoBehaviour
 
     private bool madeChoice = false;
 
+    public GameObject sb1, sb2, sb3;
+
     void Start()
     {
         choicesUI.SetActive(false);
@@ -36,12 +38,24 @@ public class EndSequence : MonoBehaviour
     public void Forgive()
     {
         madeChoice = true;
+        choicesUI.SetActive(false);
+
+        sb1.SetActive(false);
+        sb2.SetActive(false);
+        sb3.SetActive(false);
+
+        StartCoroutine(ForgiveSequence());
     }
 
     public void Revenge()
     {
         madeChoice = true;
         FindFirstObjectByType<BunnyController>().UnpauseBunnyControls();
+        choicesUI.SetActive(false);
+
+        sb1.SetActive(false);
+        sb2.SetActive(false);
+        sb3.SetActive(false);
     }
 
     IEnumerator ForgiveSequence()

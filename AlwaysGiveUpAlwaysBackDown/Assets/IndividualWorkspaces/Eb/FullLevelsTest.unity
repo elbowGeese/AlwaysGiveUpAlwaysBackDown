@@ -1164,7 +1164,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6982190500319016601, guid: d22abc6f1defadd4ab304e31cf3d9c50, type: 3}
       propertyPath: m_Color.a
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8286301013393254872, guid: d22abc6f1defadd4ab304e31cf3d9c50, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -1175,6 +1175,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d22abc6f1defadd4ab304e31cf3d9c50, type: 3}
+--- !u!1 &107783260 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2281306424610090117, guid: d22abc6f1defadd4ab304e31cf3d9c50, type: 3}
+  m_PrefabInstance: {fileID: 107783259}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &138592336
 GameObject:
   m_ObjectHideFlags: 0
@@ -2975,6 +2980,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d22abc6f1defadd4ab304e31cf3d9c50, type: 3}
+--- !u!1 &324302170 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2281306424610090117, guid: d22abc6f1defadd4ab304e31cf3d9c50, type: 3}
+  m_PrefabInstance: {fileID: 324302169}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &349454887
 GameObject:
   m_ObjectHideFlags: 0
@@ -10065,6 +10075,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EndSequence
   choicesUI: {fileID: 1919232913}
   waitForChoices: 0.2
+  sb1: {fileID: 1551697047}
+  sb2: {fileID: 324302170}
+  sb3: {fileID: 107783260}
 --- !u!61 &980250464
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16585,6 +16598,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d22abc6f1defadd4ab304e31cf3d9c50, type: 3}
+--- !u!1 &1551697047 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2281306424610090117, guid: d22abc6f1defadd4ab304e31cf3d9c50, type: 3}
+  m_PrefabInstance: {fileID: 1551697046}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1591063963
 GameObject:
   m_ObjectHideFlags: 0
