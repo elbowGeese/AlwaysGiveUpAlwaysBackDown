@@ -60,7 +60,7 @@ public class MainMenu : MonoBehaviour
         }
         else
         {
-            settingsPanel.SetActive(false);
+            creditsPanel.SetActive(false);
             mode = MenuMode.NONE;
         }
     }
