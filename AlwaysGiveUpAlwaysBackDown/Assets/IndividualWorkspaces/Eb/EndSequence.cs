@@ -1,18 +1,25 @@
 using UnityEngine;
 using System;
 using System.Collections;
+using Unity.VisualScripting;
 
 public class EndSequence : MonoBehaviour
 {
     public GameObject choicesUI;
     public float waitForChoices = 0.2f;
-
+    public Rigidbody2D playerRB;
+    public Animator spotLightAnimator;
+    public Animator canvasAnimator;
     private bool madeChoice = false;
+
+    public float playerForce;
+    public int forgivenessTimer;
 
     public GameObject sb1, sb2, sb3;
 
     void Start()
     {
+        
         choicesUI.SetActive(false);
     }
 
@@ -24,6 +31,7 @@ public class EndSequence : MonoBehaviour
         {
             // pause controls
             collision.gameObject.GetComponent<BunnyController>().PauseBunnyControls();
+            playerRB = collision.gameObject.GetComponent<Rigidbody2D>();
             // open choice buttons
             StartCoroutine(ShowChoices());
         }
@@ -60,6 +68,19 @@ public class EndSequence : MonoBehaviour
 
     IEnumerator ForgiveSequence()
     {
+        float timer = 0f;
         yield return new WaitForSeconds(waitForChoices);
+        spotLightAnimator.SetTrigger("Start");
+        yield return new WaitForSeconds(3f);
+        playerRB.gravityScale = 0f;
+        while (timer <forgivenessTimer)
+        {
+            timer += Time.deltaTime;
+            playerRB.AddForce(Vector2.up * playerForce);
+            yield return null;
+
+        }
+        canvasAnimator.SetTrigger("StartCredit");
+
     }
 }
