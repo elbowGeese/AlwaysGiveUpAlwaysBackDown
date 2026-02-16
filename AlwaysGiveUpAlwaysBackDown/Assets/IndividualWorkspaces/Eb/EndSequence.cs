@@ -16,6 +16,7 @@ public class EndSequence : MonoBehaviour
     public int forgivenessTimer;
 
     public GameObject sb1, sb2, sb3;
+    public CameraController camControl;
 
     void Start()
     {
@@ -32,6 +33,7 @@ public class EndSequence : MonoBehaviour
             // pause controls
             collision.gameObject.GetComponent<BunnyController>().PauseBunnyControls();
             playerRB = collision.gameObject.GetComponent<Rigidbody2D>();
+            camControl.SetPriorityCamera(1);
             // open choice buttons
             StartCoroutine(ShowChoices());
         }
@@ -64,6 +66,8 @@ public class EndSequence : MonoBehaviour
         sb1.SetActive(false);
         sb2.SetActive(false);
         sb3.SetActive(false);
+
+        camControl.SetPriorityCamera(0);
     }
 
     IEnumerator ForgiveSequence()
