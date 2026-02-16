@@ -9,13 +9,6 @@ public class CameraZoomScript : MonoBehaviour
     public float zoomOutAmount;
     public float zoomTime;
     public CinemachinePositionComposer cameraPositioner;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-        cam = GameObject.FindFirstObjectByType<CinemachineCamera>();
-        cameraPositioner = cam.GetComponent<CinemachinePositionComposer>();
-    }
 
     // Update is called once per frame
     void Update()
