@@ -25770,7 +25770,7 @@ MonoBehaviour:
   sb1: {fileID: 1551697047}
   sb2: {fileID: 324302170}
   sb3: {fileID: 107783260}
-  camControl: {fileID: 0}
+  camControl: {fileID: 814143793}
 --- !u!61 &980250464
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -41971,7 +41971,7 @@ AudioSource:
   m_GameObject: {fileID: 1535556737}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 8492427772846205098, guid: 6df221967bf69ca46bc541ddb0a55136, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 6c92bb3564647254a96a8bdb431f3667, type: 3}
   m_PlayOnAwake: 1
